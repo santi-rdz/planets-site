@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+@custom-variant menu-active (&:where(.menu-active, .menu-active *));
+@custom-variant active (&.active);
+
+@custom-variant mercury (&:where(.mercury, .mercury *));
+@custom-variant venus (&:where(.venus, .venus *));
+@custom-variant earth (&:where(.earth, .earth *));
+@custom-variant mars (&:where(.mars, .mars *));
+@custom-variant jupiter (&:where(.jupiter, .jupiter *));
+@custom-variant saturn (&:where(.saturn, .saturn *));
+@custom-variant uranus (&:where(.uranus, .uranus *));
+@custom-variant neptune (&:where(.neptune, .neptune *));
+
+:root {
+  --color-blackish: #070724;
+  --color-dark-gray: #38384f;
+  --color-gray: #838391;
+
+  --color-cyan: #419ebb;
+  --color-orange: #eda249;
+  --color-purple: #6f2ed6;
+  --color-red: #d14c32;
+
+  --color-bright-red: #d83a34;
+  --color-deep-orange: #cd5120;
+  --color-teal: #1ec2a4;
+  --color-blue: #2d68f0;
+
+  --planet: var(--color-cyan);
+}
+.mercury {
+  --planet: var(--color-cyan);
+}
+.venus {
+  --planet: var(--color-orange);
+}
+.earth {
+  --planet: var(--color-purple);
+}
+.mars {
+  --planet: var(--color-red);
+}
+.jupiter {
+  --planet: var(--color-bright-red);
+}
+.saturn {
+  --planet: var(--color-deep-orange);
+}
+.uranus {
+  --planet: var(--color-teal);
+}
+.neptune {
+  --planet: var(--color-blue);
+}
+@font-face {
+  font-family: "Antonio";
+  src: url("font/Antonio/Antonio-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Spartan";
+  src: url("font/League_Spartan/LeagueSpartan-VariableFont_wght.ttf");
+}
+
+@theme {
+  --color-blackish: #070724;
+  --color-dark-gray: #38384f;
+  --color-gray: #838391;
+
+  --color-cyan: #419ebb;
+  --color-orange: #eda249;
+  --color-purple: #6f2ed6;
+  --color-red: #d14c32;
+
+  --color-bright-red: #d83a34;
+  --color-deep-orange: #cd5120;
+  --color-teal: #1ec2a4;
+  --color-blue: #2d68f0;
+
+  --font-antonio: "Antonio";
+  --font-spartan: "Spartan";
+}
+
+@utility txt-1 {
+  /* 40-80px */
+  font-size: clamp(2.5rem, 1.6197rem + 3.7559vw, 5rem);
+  line-height: clamp(3.25rem, 2.1276rem + 4.7887vw, 6.4375rem);
+}
+@utility txt-2 {
+  /* 20-40px */
+  font-size: clamp(1.25rem, 0.8099rem + 1.8779vw, 2.5rem);
+  letter-spacing: clamp(0.046875rem, 0.0304rem + 0.0704vw, 0.09375rem);
+  line-height: clamp(1.875rem, 1.3908rem + 2.0657vw, 3.25rem);
+}
+
+@utility txt-3 {
+  /* 14-19px */
+  font-size: clamp(0.875rem, 0.765rem + 0.4695vw, 1.1875rem);
+  letter-spacin: 0px;
+}
+@utility txt-4 {
+  /* 12-14px */
+  font-size: clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem);
+  letter-spacing: clamp(0.120625rem, 0.1065rem + 0.0601vw, 0.160625rem);
+}
+@utility txt-5 {
+  /* 8px-11px */
+  font-size: clamp(0.5rem, 0.434rem + 0.2817vw, 0.6875rem);
+  letter-spacing: clamp(0.045625rem, 0.0397rem + 0.0254vw, 0.0625rem);
+  line-height: clamp(1rem, 0.8019rem + 0.8451vw, 1.5625rem);
+}
+
+@utility my-container {
+  width: min(90%, 90rem);
+  margin: 0 auto;
+}
+
+.planet-grid {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "tab"
+    "img"
+    "info";
+  row-gap: 40px;
+}
+
+.tab-box {
+  grid-area: tab;
+}
+.img-box {
+  grid-area: img;
+}
+
+.info-box {
+  grid-area: info;
+}
+
+.tab-ul li.active:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: 120%;
+  height: 10%;
+  background-color: var(--planet);
+}
+
+@media (width>= 768px) {
+  .planet-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "img img img"
+      "info info tab";
+    row-gap: 10px;
+  }
+
+  .tab-ul li.active {
+    background-color: var(--planet);
+  }
+  .planets-list li {
+    position: relative;
+    padding-block: 16px;
+  }
+
+  .planets-list li.active:after {
+    content: "";
+    width: 80%;
+    height: 5px;
+    position: absolute;
+    background-color: var(--planet);
+    bottom: 0;
+
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (width >= 1280px) {
+  .planet-grid {
+    grid-template-columns: 70fr 30fr;
+    grid-template-rows: auto 30px auto;
+
+    grid-template-areas:
+      "img info"
+      "img ."
+      "img tab";
+
+    row-gap: 0px;
+  }
+
+  .planets-list li {
+    padding-block: 30px;
+  }
+  .planets-list li.active:after {
+    bottom: auto;
+    top: 0;
+  }
+}
+
+.img-surface {
+  background-repeat: no-repeat;
+}

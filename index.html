@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
+    <link rel="stylesheet" href="output.css" />
+
+    <title>Planets fact site</title>
+  </head>
+  <body
+    class="menu-active:overflow-hidden earth bg-blackish md:menu-active:overflow-auto min-h-dvh bg-[url('assets/background-stars.svg')] pb-14 text-white md:overflow-auto"
+  >
+    <header class="border-gray relative border-b py-4 md:pb-0 xl:py-0">
+      <nav class="my-container xl:gap- flex items-center justify-between md:flex-col xl:flex-row xl:items-center">
+        <h1 class="font-antonio text-3xl -tracking-[1.05px] text-nowrap uppercase">The planets</h1>
+        <button class="cursor-pointer md:hidden" onclick="document.body.classList.toggle('menu-active')">
+          <img src="assets/icon-hamburger.svg" alt="" />
+        </button>
+        <menu
+          class="bg-blackish menu-active:block menu-active:translate-x-0 menu-active:opacity-100 menu-active:pointer-events-auto pointer-events-none fixed bottom-0 left-0 z-10 h-dvh w-dvw translate-x-[100%] overflow-auto opacity-0 transition-[transform_opacity] duration-300 ease-in md:pointer-events-auto md:static md:flex md:h-auto md:w-full md:translate-0 md:p-0 md:opacity-100"
+        >
+          <header class="border-gray justify-between border-b md:hidden">
+            <div class="my-container flex justify-between">
+              <h1 class="font-antonio py-4 text-3xl -tracking-[1.05px] uppercase">The planets</h1>
+              <button class="cursor-pointer" onclick="document.body.classList.toggle('menu-active')">
+                <img src="assets/icon-hamburger.svg" alt="" />
+              </button>
+            </div>
+          </header>
+          <ul
+            class="my-container planets-list font-spartan divide-dark-gray mt-10 flex flex-col gap-6 divide-y font-bold tracking-wider uppercase md:mt-6 md:w-full md:flex-row md:justify-between md:divide-none md:px-0 md:text-lg md:font-semibold md:text-white/80 md:transition-none xl:mt-0 xl:justify-end xl:gap-12 md:[&_img]:hidden md:[&>li]:pb-0 md:[&>li]:text-[16px] md:[&>li>p]:before:hidden"
+          >
+            <li data-planet="mercury" class="planet-item flex cursor-pointer items-center justify-between pb-4">
+              <p
+                class="before:bg-cyan flex items-center gap-4 before:inline-block before:size-5 before:rounded-full before:content-['']"
+              >
+                Mercury
+              </p>
+              <img src="assets/icon-chevron.svg" alt="" />
+            </li>
+            <li data-planet="venus" class="planet-item flex cursor-pointer items-center justify-between pb-4">
+              <p
+                class="before:bg-orange flex items-center gap-4 before:inline-block before:size-5 before:rounded-full before:content-['']"
+              >
+                Venus
+              </p>
+              <img src="assets/icon-chevron.svg" alt="" />
+            </li>
+            <li data-planet="earth" class="planet-item active flex cursor-pointer items-center justify-between pb-4">
+              <p
+                class="before:bg-blue flex items-center gap-4 before:inline-block before:size-5 before:rounded-full before:content-['']"
+              >
+                Earth
+              </p>
+              <img src="assets/icon-chevron.svg" alt="" />
+            </li>
+            <li data-planet="mars" class="planet-item flex cursor-pointer items-center justify-between pb-4">
+              <p
+                class="before:bg-red flex items-center gap-4 before:inline-block before:size-5 before:rounded-full before:content-['']"
+              >
+                Mars
+              </p>
+              <img src="assets/icon-chevron.svg" alt="" />
+            </li>
+            <li data-planet="jupiter" class="planet-item flex cursor-pointer items-center justify-between pb-4">
+              <p
+                class="flex items-center gap-4 before:inline-block before:size-5 before:rounded-full before:bg-[#ECAD7A] before:content-['']"
+              >
+                jupiter
+              </p>
+              <img src="assets/icon-chevron.svg" alt="" />
+            </li>
+            <li data-planet="saturn" class="planet-item flex cursor-pointer items-center justify-between pb-4">
+              <p
+                class="flex items-center gap-4 before:inline-block before:size-5 before:rounded-full before:bg-[#FCCB6B] before:content-['']"
+              >
+                saturn
+              </p>
+              <img src="assets/icon-chevron.svg" alt="" />
+            </li>
+            <li data-planet="uranus" class="planet-item flex cursor-pointer items-center justify-between pb-4">
+              <p
+                class="flex items-center gap-4 before:inline-block before:size-5 before:rounded-full before:bg-[#65F0D5] before:content-['']"
+              >
+                uranus
+              </p>
+              <img src="assets/icon-chevron.svg" alt="" />
+            </li>
+            <li data-planet="neptune" class="planet-item flex cursor-pointer items-center justify-between pb-4">
+              <p
+                class="flex items-center gap-4 before:inline-block before:size-5 before:rounded-full before:bg-[#497EFA] before:content-['']"
+              >
+                neptune
+              </p>
+              <img src="assets/icon-chevron.svg" alt="" />
+            </li>
+          </ul>
+        </menu>
+      </nav>
+    </header>
+    <main class="">
+      <section class="planet-grid md:my-container grid md:mt-14 xl:mt-20">
+        <div class="tab-box flex items-center border-b-[0.5px] border-b-[#979797] md:border-none">
+          <ul
+            class="tab-ul my-container font-spartan txt-4 md:[&>li]:border-dark-gray [&>li]:earth:after:bg-blue flex justify-between uppercase md:w-full md:flex-col md:gap-5 [&>li]:px-5 md:[&>li]:border md:[&>li]:after:hidden"
+          >
+            <li
+              data-name="overview"
+              class="tab active hover:bg-dark-gray relative cursor-pointer py-5 font-bold transition-colors duration-300 ease-out md:border"
+            >
+              <p><span class="hidden md:inline">01</span> Overview</p>
+            </li>
+            <li
+              data-name="structure"
+              class="tab hover:bg-dark-gray relative cursor-pointer py-5 font-bold text-nowrap transition-colors duration-300 ease-out"
+            >
+              <p><span class="hidden md:inline">02</span> <span class="hidden md:inline">Internal</span> Strucutre</p>
+            </li>
+            <li
+              data-name="surface"
+              class="tab hover:bg-dark-gray relative cursor-pointer py-5 font-bold transition-colors duration-300 ease-out"
+            >
+              <p><span class="hidden md:inline">03</span> Surface</p>
+            </li>
+          </ul>
+        </div>
+        <div class="img-box my-container relative flex items-center justify-center md:h-[582px]">
+          <img class="planet-img max-h-[582px]" src="assets/planet-earth.svg" alt="" />
+          <img src="" class="img-surface absolute bottom-1/6 h-36 max-h-full translate-y-1/4 xl:h-44" alt="" />
+        </div>
+        <div class="info-box my-container md:w-full">
+          <h2 class="planet-name txt-1 font-antonio text-center uppercase md:text-start">Earth</h2>
+          <p
+            class="planet-description font-spartan txt-3 mt-[clamp(1.125rem,0.8609rem+1.1268vw,1.875rem)] overflow-auto text-center font-thin text-balance overflow-ellipsis md:h-34 md:pr-10 md:text-start md:text-wrap xl:pr-0"
+          >
+            Third planet from the Sun and the only known planet to harbor life. About 29.2% of Earth's surface is land
+            with remaining 70.8% is covered with water. Earth's distance from the Sun, physical properties and
+            geological history have allowed life to evolve and thrive.
+          </p>
+          <p class="font-spartan text-gray mt-6 flex items-center justify-center gap-1 text-[20px] md:justify-start">
+            Source:
+
+            <a class="planet-source font-semibold underline" href="https://en.wikipedia.org/wiki/Earth">Wikipedia </a>
+            <img class="inline" src="assets/icon-source.svg" alt="" />
+          </p>
+        </div>
+      </section>
+      <section class="my-container mt-[clamp(2.75rem,2.0458rem+3.0047vw,4.75rem)]">
+        <ul class="flex flex-col gap-4 md:flex-row md:[&>li]:flex-1 md:[&>li]:flex-col md:[&>li]:items-start">
+          <li class="stat border-gray flex items-center justify-between border px-6 py-4">
+            <p class="font-spartan txt-4 text-gray font-bold uppercase">Rotation time</p>
+            <span class="rotation font-antonio txt-2 font-medium uppercase">0.99 days</span>
+          </li>
+          <li class="stat border-gray flex items-center justify-between border px-6 py-4">
+            <p class="font-spartan txt-4 text-gray font-bold uppercase">Revolution time</p>
+            <span class="revolution font-antonio txt-2 font-medium uppercase">365.26 days</span>
+          </li>
+          <li class="stat border-gray flex items-center justify-between border px-6 py-4">
+            <p class="font-spartan txt-4 text-gray font-bold uppercase">Radius time</p>
+            <span class="radius font-antonio txt-2 font-medium uppercase">6,371 km</span>
+          </li>
+          <li class="stat border-gray flex items-center justify-between border px-6 py-4">
+            <p class="font-spartan txt-4 text-gray font-bold uppercase">Average temp.</p>
+            <span class="temp font-antonio txt-2 font-medium uppercase">16 °C</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
